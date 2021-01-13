@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
-import Cases from './Components/Cases';
-import Deaths from './Components/Deaths';
-import Recover from './Components/Recover';
+import Cards from './Components/Cards';
+import Map from './Components/Map';
 
 import './styles.css';
 
 function App() {
   const [covid, setCovid] = useState({});
+  const [lat, setLat] = useState('61');
+  const [long, setLong] = useState('25');
 
   const [loading, setLoading] = useState(true);
   const [items, setItems] = useState([]);
@@ -32,6 +33,15 @@ function App() {
     fetchData(value)
   }, [value])
 
+  useEffect(() => {
+    if (covid.country !== undefined) {
+      setLat(covid.countryInfo.lat)
+      setLong(covid.countryInfo.long)
+    }
+    console.log(lat)
+    console.log(long)
+  }, [covid])
+
   return (
     <div className="wrapper">
       <h1>Covid Tracker</h1>
@@ -44,10 +54,11 @@ function App() {
         </select>
         <h2 className="country-name">{covid.country}</h2>
       <div className="container">
-        <Cases total={covid.cases} today={covid.todayCases} />
-        <Deaths total={covid.deaths} today={covid.todayDeaths} />
-        <Recover total={covid.recovered} today={covid.todayRecovered} />
+        <Cards titleToday="Cases Today" titleTotal="Total Cases" today={covid.todayCases} total={covid.cases} />
+        <Cards titleToday="Deaths Today" titleTotal="Total Deaths" today={covid.todayDeaths} total={covid.deaths} />
+        <Cards titleToday="Recoveries Today" titleTotal="Total Recoveries" today={covid.todayRecovered} total={covid.recovered} />
       </div>
+      <Map country={covid.country} lat={lat} long={long} active={covid.active} critical={covid.critical} />
     </div>
   );
 }
