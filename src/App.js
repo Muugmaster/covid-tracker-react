@@ -34,7 +34,7 @@ function App() {
 
   return (
     <div className="wrapper">
-      <h1>{covid.country}</h1>
+      <h1>Covid Tracker</h1>
       <select disabled={loading} value={value} onChange={e => setValue(e.currentTarget.value)}>
             {items.map((country) => (
                 <option value={country} key={country}>
@@ -42,6 +42,7 @@ function App() {
                 </option>
             ))}
         </select>
+        <h2 className="country-name">{covid.country}</h2>
       <div className="container">
         <Cases total={covid.cases} today={covid.todayCases} />
         <Deaths total={covid.deaths} today={covid.todayDeaths} />
