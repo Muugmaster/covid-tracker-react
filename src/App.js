@@ -3,6 +3,8 @@ import Cards from './Components/Cards';
 import Map from './Components/Map';
 
 import './styles.css';
+import logo from './images/coronavirus.svg';
+import Footer from './Components/Footer';
 
 function App() {
   const [covid, setCovid] = useState({});
@@ -44,7 +46,7 @@ function App() {
 
   return (
     <div className="wrapper">
-      <h1>Covid Tracker</h1>
+      <h1>Covid Tracker <img className="logo" src={logo} alt=""/></h1>
       <select disabled={loading} value={value} onChange={e => setValue(e.currentTarget.value)}>
             {items.map((country) => (
                 <option value={country} key={country}>
@@ -59,7 +61,9 @@ function App() {
         <Cards titleToday="Recoveries Today" titleTotal="Total Recoveries" today={covid.todayRecovered} total={covid.recovered} />
       </div>
       <Map country={covid.country} lat={lat} long={long} active={covid.active} critical={covid.critical} />
+      <Footer />
     </div>
+
   );
 }
 

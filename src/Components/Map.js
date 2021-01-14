@@ -14,9 +14,9 @@ const Map = ({country, lat, long, active, critical}) => {
   <Marker position={[lat, long]}>
     <Popup>
       <p>{country}</p>
-      <p>Active</p>
+      <p>Active cases</p>
       {active}
-      <p>Critical</p>
+      <p>Critical cases</p>
       {critical}
     </Popup>
   </Marker>
