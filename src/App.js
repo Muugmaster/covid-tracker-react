@@ -40,8 +40,6 @@ function App() {
       setLat(covid.countryInfo.lat)
       setLong(covid.countryInfo.long)
     }
-    console.log(lat)
-    console.log(long)
   }, [covid])
 
   return (
