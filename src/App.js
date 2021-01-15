@@ -10,6 +10,7 @@ function App() {
   const [covid, setCovid] = useState({});
   const [lat, setLat] = useState('61');
   const [long, setLong] = useState('25');
+  const [flag, setFlag] = useState('');
 
   const [loading, setLoading] = useState(true);
   const [items, setItems] = useState([]);
@@ -36,9 +37,10 @@ function App() {
   }, [value])
 
   useEffect(() => {
-    if (covid.country !== undefined) {
+    if (covid.countryInfo !== undefined) {
       setLat(covid.countryInfo.lat)
       setLong(covid.countryInfo.long)
+      setFlag(covid.countryInfo.flag)
     }
   }, [covid])
 
@@ -53,6 +55,7 @@ function App() {
             ))}
         </select>
         <h2 className="country-name">{covid.country}</h2>
+        <img className="country-flag" src={flag} alt={covid.country}/>
       <div className="container">
         <Cards titleToday="Cases Today" titleTotal="Total Cases" today={covid.todayCases} total={covid.cases} />
         <Cards titleToday="Deaths Today" titleTotal="Total Deaths" today={covid.todayDeaths} total={covid.deaths} />
