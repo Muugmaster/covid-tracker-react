@@ -37,3 +37,7 @@ npm install
 ```sh
 npm start
 ```
+
+#### With Docker
+
+You can also pull docker image of this project from [Docker Hub](https://hub.docker.com/r/muugmaster/covid-tracker-react)
