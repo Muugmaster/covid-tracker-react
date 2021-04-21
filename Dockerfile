@@ -1,6 +1,6 @@
 FROM node:15-alpine3.10
 
-EXPOSE ${PORT}
+EXPOSE $PORT
 
 WORKDIR /usr/src/app/
 
