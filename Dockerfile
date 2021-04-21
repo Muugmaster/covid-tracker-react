@@ -1,6 +1,6 @@
 FROM node:15-alpine3.10
 
-EXPOSE 5000
+EXPOSE ${PORT}
 
 WORKDIR /usr/src/app/
 
@@ -14,4 +14,4 @@ COPY . .
 
 RUN npm run build
 
-CMD ["serve", "-s", "-l", "5000", "build"]
+CMD ["serve", "-s", "-l", "${PORT}", "build"]
