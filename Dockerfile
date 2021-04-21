@@ -14,4 +14,4 @@ COPY . .
 
 RUN npm run build
 
-CMD ["CMD", "serve", "-p", "$PORT", "-s", "build"]
+CMD ["serve", "-p", "$PORT", "-s", "build"]
