@@ -1,6 +1,6 @@
 # Covid Tracker Application
 
-## [App Demo](https://covid-tracker-niko.netlify.app/)
+## [App Demo](https://covid-tracker-niko.herokuapp.com/)
 
 ### About the project
 
